@@ -1,8 +1,9 @@
 // required dependencies
 const express = require('express');
 const fs = require('fs');
-var app = express();
-var path = require('path');
+const app = express();
+const path = require('path');
+let note = require("/db/db.json");
 
 // establish a port to be used
 const PORT = 8081;
@@ -14,15 +15,15 @@ app.use(express.static("public"));
 
 // routes
 app.get("/notes", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/notes.html"));
+    res.sendFile(path.join(__dirname, "public/notes.html"));
 });
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/index.html"));
+    res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 app.get("/api/notes", (req, res) => {
-    readFileAsync("/db/db.json", "utf8")
+    readFile("/db/db.json", "utf8")
     .then((res, err) => {
         if(err) console.log(err);
         return res.json(JSON.parse(result));
@@ -31,7 +32,7 @@ app.get("/api/notes", (req, res) => {
 
 app.post("/notes", (req, res) => {
     let newNote = req.body;
-    readFileAsync("/db/db.json", "utf8")
+    readFile("/db/db.json", "utf8")
     .then((result, err) => {
         if(err) console.log(err);
         return Promise.resolve(JSON.parse(result));
@@ -40,7 +41,7 @@ app.post("/notes", (req, res) => {
         (data.length > 0)? data.push(newNote):data = [newNote];
         return Promise.resolve(data);
     }).then(data => {
-        writeFileAsync("/db/db.json", JSON.stringify(data));
+        writeFile("/db/db.json", JSON.stringify(data));
         res.json(newNote);
     }).catch(err => {
         if(err) throw err;
