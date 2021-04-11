@@ -22,16 +22,16 @@ app.get("*", (req, res) => {
 });
 
 app.get("/api/notes", (req, res) => {
-    readFileAsync("./db/db.json", "utf8")
+    readFileAsync("/db/db.json", "utf8")
     .then((res, err) => {
         if(err) console.log(err);
         return res.json(JSON.parse(result));
     });
 });
 
-app.post("/api/notes", (req, res) => {
+app.post("/notes", (req, res) => {
     let newNote = req.body;
-    readFileAsync("./db/db.json", "utf8")
+    readFileAsync("/db/db.json", "utf8")
     .then((result, err) => {
         if(err) console.log(err);
         return Promise.resolve(JSON.parse(result));
@@ -40,7 +40,7 @@ app.post("/api/notes", (req, res) => {
         (data.length > 0)? data.push(newNote):data = [newNote];
         return Promise.resolve(data);
     }).then(data => {
-        writeFileAsync("./db/db.json", JSON.stringify(data));
+        writeFileAsync("/db/db.json", JSON.stringify(data));
         res.json(newNote);
     }).catch(err => {
         if(err) throw err;
