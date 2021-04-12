@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8081;
 //serves files in a public directory
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(express.static("public"));
+app.use(express.static("public"));
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
