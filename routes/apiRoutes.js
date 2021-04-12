@@ -6,7 +6,7 @@ module.exports = (app) => {
 
     app.post('/api/notes', (req, res) => {
         db.push(req.body);
-        res.json("saved");
+        res.json('saved');
       });
     
 };
