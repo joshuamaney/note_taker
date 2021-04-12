@@ -2,10 +2,9 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const db = require('./db/db.json');
 
 // establish a port to be used
-const PORT = 8081;
+const PORT = process.env.PORT || 8081;
 
 //serves files in a public directory
 app.use(express.urlencoded({ extended: true }));
