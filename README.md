@@ -24,7 +24,7 @@ Express Note Taker is a simple application that allows a user to easily write an
 
 After installation, locate the application in your terminal, run 'node server.js' to start the local server. In your browser's url, enter 'http://localhost:8081/' to connect to your localhost server and load the note taker application.
 
-[![Note Taker Demo](http://img.youtube.com/vi/nImhseKMQmc/0.jpg)](http://www.youtube.com/watch?v=nImhseKMQmc "Note Taker Demo")
+[![Express Note Taker demo](http://img.youtube.com/vi/xnq9vv2f7ck/0.jpg)](http://www.youtube.com/watch?v=xnq9vv2f7ck "Express Note Taker demo")
 
 ## License
 
