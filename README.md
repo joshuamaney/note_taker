@@ -1,5 +1,7 @@
 ## Express Note Taker
 
+[Try the app on Heroku!](https://mysterious-castle-12173.herokuapp.com/)
+
 ## Description
 
 Express Note Taker is a simple application that allows a user to easily write and save notes and save them on their own localhost server.
