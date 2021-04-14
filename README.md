@@ -30,7 +30,7 @@ N/A
 
 ## Contributing
 
-[![Github](https://github.com/joshuamaney)]
+[Github](https://github.com/joshuamaney)
 
 ## Tests
 
